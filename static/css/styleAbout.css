@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.max-width{
+  max-width: 1300px;
+  padding: 0 80px;
+  margin: auto;
+}
+
+.about{
+  display: flex;
+  background: url('/static/css/builtin/banner.jpg');
+  height: 100vh;
+  color: rgb(0, 0, 0);
+  min-height: 500px;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+
+.about .max-width{
+  margin: auto 0 auto 0px;
+}
+
+.about .about-content .text-1{
+  font-size: 1em;  
+}
+.about .about-content .text-2{
+  /* font-size: 75px; */
+  font-size: 3em;
+  font-weight: 600;
+  margin-left: -3px;
+}
+.about .about-content .text-3{
+  font-size: 1.7em;
+  margin: 5px 0;
+}
+
+
+.contact{
+  display: flex;
+  background: url('/static/css/builtin/banner.jpg');
+  height: 100vh;
+  color: rgb(0, 0, 0);
+  min-height: 500px;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Ubuntu', sans-serif;
+}

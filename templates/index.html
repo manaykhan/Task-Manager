@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container my-3">
+    <form action='/' method="POST">
+        <form action='/getAll' method="GET">
+            <div class="mb-3">
+                <h3><em>Lets get productive! Add your to-dos here:</em></h3>
+                <label for="userName" class="form-label">Enter your name</label>
+                <input type="text" class="form-control" name="userName" id="userName" value="{{name}}"
+                    aria-describedby="emailHelp">
+                <label for="task" class="form-label">Input your todo</label>
+                <input type="text" class="form-control" name="task" id="task" aria-describedby="emailHelp">
+
+            </div>
+
+            <button type="submit" class="btn btn-outline-dark">Submit</button>
+            <button type="submit" class="btn btn-outline-dark">Get my to-dos</button>
+        </form>
+    </form>
+</div>
+
+<div class="container my-3">
+    <h3><em>The tasks you need to complete:</em></h3>
+
+
+    {% if allTodo|length == 0 %}
+    <div class="alert alert-dark" role="alert">
+        You haven't added any to-dos. Add now! :D
+    </div>
+    {% else %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">uid</th>
+                <th scope="col">Task</th>
+                <th scope="col">Time</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for todo in allTodo %}
+
+            <tr>
+                <td scope="row">{{todo.id}}</td>
+                <td>{{todo.task}}</td>
+                <td>{{todo.date_time}}</td>
+                <td>
+                    <a href="{{ url_for('delete', id=todo.id) }}" type="button"
+                        class="btn btn-outline-dark btn-sm mx-2 my-2">Delete</button>
+                        <a href="/update/{{todo.id}}" type="button"
+                            class="btn btn-outline-dark btn-sm mx-2 my-2">Update</button>
+                </td>
+            </tr>
+        </tbody>
+
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+{% endblock body %}
